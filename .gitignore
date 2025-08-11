@@ -97,3 +97,13 @@ Thumbs.db
 .sass-cache/
 connect.lock
 typings/
+
+# GitHub helper files and scripts with sensitive data
+*github*.sh
+*deploy*.sh
+*token*.txt
+*credentials*
+GITHUB_TOKEN_GUIDE.md
+UPLOAD_INSTRUCTIONS.md
+upload-to-github.sh
+fix-github-upload.sh
