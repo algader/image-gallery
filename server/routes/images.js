@@ -206,7 +206,7 @@ router.post('/:id/like', authenticateToken, async (req, res) => {
   }
 });
 
-// Update image (only owner can update)
+// Update image 
 router.put('/:id', authenticateToken, async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -255,7 +255,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
   }
 });
 
-// Delete image (only owner can delete)
+// Delete image
 router.delete('/:id', authenticateToken, async (req, res) => {
   try {
     const image = await Image.findById(req.params.id);
