@@ -1,0 +1,181 @@
+.image-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  direction: rtl;
+}
+
+.image-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover .image {
+  transform: scale(1.05);
+}
+
+.image-actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-card:hover .image-actions {
+  opacity: 1;
+}
+
+.like-btn, .delete-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.like-btn:hover, .delete-btn:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.like-btn.liked {
+  background: #ff4757;
+  color: white;
+}
+
+.like-btn {
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.heart {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.like-count {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.delete-btn {
+  font-size: 18px;
+}
+
+.delete-btn:hover {
+  background: #ff4757;
+}
+
+.image-info {
+  padding: 20px;
+}
+
+.image-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.image-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.image-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 15px;
+}
+
+.uploader-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.uploader-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.upload-date {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.image-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.views, .likes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .image-card {
+    margin-bottom: 20px;
+  }
+
+  .image-container {
+    height: 200px;
+  }
+
+  .image-info {
+    padding: 15px;
+  }
+
+  .image-title {
+    font-size: 1.1rem;
+  }
+
+  .image-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .image-stats {
+    align-self: flex-end;
+  }
+}

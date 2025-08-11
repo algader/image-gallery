@@ -1,0 +1,216 @@
+{
+  "nav": {
+    "title": "Die Ausstellung",
+    "subtitle": "Globale Kreative Foto-Sharing-Plattform",
+    "home": "Startseite",
+    "myImages": "Meine Bilder",
+    "upload": "Hochladen",
+    "about": "Über uns",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "welcome": "Willkommen"
+  },
+  "home": {
+    "title": "Bildergalerie",
+    "subtitle": "Entdecken und teilen Sie die schönsten Fotos",
+    "searchPlaceholder": "Bilder suchen...",
+    "searchResults": "Suchergebnisse für",
+    "foundImages": "Gefunden",
+    "noImagesFound": "Keine Bilder entsprechen Ihrer Suche",
+    "noImages": "Keine Bilder verfügbar",
+    "searchHint": "Versuchen Sie andere Wörter oder überprüfen Sie die Rechtschreibung",
+    "previous": "Vorherige",
+    "next": "Nächste"
+  },
+  "auth": {
+    "login": "Anmelden",
+    "register": "Neues Konto erstellen",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "username": "Benutzername",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "loginButton": "Anmelden",
+    "registerButton": "Konto erstellen",
+    "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
+    "noAccount": "Haben Sie noch kein Konto?",
+    "loginHere": "Hier anmelden",
+    "registerHere": "Hier registrieren"
+  },
+  "myImages": {
+    "title": "Meine Bilder",
+    "subtitle": "Verwalten und betrachten Sie alle Ihre hochgeladenen Fotos",
+    "uploadNew": "Neues Bild hochladen",
+    "noImages": "Noch keine Bilder",
+    "noImagesSubtitle": "Sie haben noch keine Fotos hochgeladen",
+    "uploadFirst": "Erstes Bild hochladen",
+    "images": "Bild",
+    "likes": "Gefällt mir",
+    "views": "Ansicht"
+  },
+  "upload": {
+    "title": "Neues Bild hochladen",
+    "selectImage": "Bild auswählen",
+    "title_field": "Bildtitel",
+    "description": "Bildbeschreibung",
+    "uploadButton": "Bild hochladen",
+    "uploading": "Wird hochgeladen...",
+    "dragDrop": "Bild hier ablegen oder klicken zum Auswählen",
+    "supportedFormats": "Unterstützte Formate: JPEG, PNG"
+  },
+  "imageCard": {
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "like": "Gefällt mir",
+    "unlike": "Gefällt mir nicht mehr",
+    "views": "Ansichten",
+    "likes": "Gefällt mir",
+    "uploadedBy": "Hochgeladen von",
+    "uploadDate": "Hochgeladen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "saving": "Wird gespeichert...",
+    "confirmDelete": "Löschen bestätigen",
+    "deleteConfirmText": "Sind Sie sicher, dass Sie dieses Bild löschen möchten?",
+    "deleteWarning": "Diese Aktion kann nicht rückgängig gemacht werden",
+    "confirmDeleteButton": "Ja, löschen",
+    "cancelDelete": "Abbrechen",
+    "deleting": "Wird gelöscht..."
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolgreich",
+    "close": "Schließen",
+    "back": "Zurück",
+    "continue": "Weiter",
+    "language": "Sprache"
+  },
+  "about": {
+    "hero": {
+      "title": "The Exhibition - Kreative Foto-Sharing-Plattform",
+      "subtitle": "Eine führende Plattform im Bereich Foto-Sharing und künstlerische Kreativität seit 2020. Wir verbinden fortschrittliche Technologie mit elegantem Design, um ein einzigartiges Erlebnis für Fotografen und Künstler weltweit zu bieten."
+    },
+    "stats": {
+      "users": { "number": "10K+", "label": "aktive Nutzer" },
+      "photos": { "number": "500K+", "label": "geteilte Fotos" },
+      "countries": { "number": "150+", "label": "Länder" },
+      "languages": { "number": "3", "label": "unterstützte Sprachen" }
+    },
+    "story": {
+      "title": "Unsere Geschichte",
+      "paragraph1": "Unsere Reise begann 2020 mit einem einfachen Traum: eine Plattform zu schaffen, die Fotografen und Künstler aus aller Welt zusammenbringt, um ihre Kreativität und Leidenschaft für die Fotografie zu teilen. Wir glaubten, dass jedes Foto eine Geschichte erzählt und jeder Künstler eine Plattform verdient, die seines Talents würdig ist.",
+      "paragraph2": "In den vergangenen Jahren ist unsere Plattform zu einer der größten Fotografie-Communities in der Region gewachsen und bedient über 10.000 aktive Nutzer aus 150 Ländern weltweit. Mehr als eine halbe Million Fotos wurden über unsere Plattform geteilt.",
+      "paragraph3": "Wir glauben an die Macht der Kunst, die Welt zu verändern, und bemühen uns, fortschrittliche Tools und Technologien bereitzustellen, die Kreativen helfen, sich bestmöglich auszudrücken. Unsere Vision ist es, die weltweit führende Plattform für das Teilen visueller Kreativität zu werden."
+    },
+    "timeline": {
+      "2020": "Plattform-Gründung und erster Start",
+      "2022": "5000 Nutzer und 100k Fotos erreicht",
+      "2023": "Erweiterte Funktionen und internationale Expansion",
+      "2025": "Mehrsprachige Unterstützung und KI-Integration"
+    },
+    "features": {
+      "title": "Unsere einzigartigen Funktionen",
+      "subtitle": "Wir bieten eine umfassende Palette von Tools und Funktionen, die das Teilen von Fotos einfach, angenehm und besonders machen",
+      "sharing": {
+        "title": "Einfaches & sicheres Teilen",
+        "desc": "Laden Sie Ihre Fotos mit einem Klick hoch und gewährleisten dabei die Erhaltung der ursprünglichen Qualität und den Urheberrechtsschutz"
+      },
+      "security": {
+        "title": "Erweiterte Sicherheit",
+        "desc": "Wir schützen Ihre Daten und Fotos mit den neuesten Verschlüsselungs- und Cybersicherheitstechnologien"
+      },
+      "multilingual": {
+        "title": "Mehrsprachige Unterstützung",
+        "desc": "Benutzeroberfläche verfügbar in drei Sprachen: Arabisch, Englisch und Deutsch mit Textrichtungsunterstützung"
+      },
+      "responsive": {
+        "title": "Responsives Design",
+        "desc": "Perfekte Erfahrung auf allen Geräten von Smartphones bis Desktop-Computern"
+      },
+      "fast": {
+        "title": "Schnelle Leistung",
+        "desc": "Blitzschnelles Laden und reibungslose Navigation dank moderner verwendeter Technologien"
+      },
+      "community": {
+        "title": "Kreative Gemeinschaft",
+        "desc": "Treten Sie einer Gemeinschaft kreativer Fotografen und Künstler bei und interagieren Sie mit ihren Werken"
+      }
+    },
+    "mission": {
+      "title": "Unsere Mission",
+      "content": "Wir streben danach, Kreative aus aller Welt zu befähigen, indem wir eine fortschrittliche und benutzerfreundliche Plattform bereitstellen, um ihre künstlerischen Werke zu teilen und sich mit einer globalen Gemeinschaft von Kunst- und Fotografie-Interessierten zu verbinden."
+    },
+    "vision": {
+      "title": "Unsere Vision",
+      "content": "Die weltweit führende Plattform im Bereich des Teilens visueller Kreativität zu werden und die Brücke zu sein, die Künstler und Kreative aus verschiedenen Kulturen und Hintergründen verbindet, um eine schönere und kreativere Welt aufzubauen."
+    },
+    "values": {
+      "title": "Unsere Unternehmenswerte",
+      "content": "Kreativität und Innovation im Kern von allem, was wir tun, Qualität und Exzellenz in der Produktentwicklung, Transparenz und Integrität im Umgang mit unseren Kunden und Partnern, Nachhaltigkeit und soziale Verantwortung, und Respekt für die kulturelle und intellektuelle Vielfalt unserer Nutzer aus aller Welt."
+    },
+    "achievements": {
+      "title": "Unsere Erfolge & Auszeichnungen",
+      "subtitle": "Wir sind stolz auf die Erfolge, die wir erzielt haben, und die Anerkennung, die wir von der technischen und kreativen Gemeinschaft erhalten haben",
+      "tech": {
+        "title": "Beste Tech-Plattform 2024",
+        "desc": "Auszeichnung für die beste Technologie-Plattform für Kreativität von der Nahost-Technologie-Konferenz"
+      },
+      "users": {
+        "title": "Nutzerbewertung",
+        "desc": "4,8/5 Bewertung von über 10.000 Nutzern weltweit"
+      },
+      "growth": {
+        "title": "Am schnellsten wachsendes Unternehmen",
+        "desc": "Unter den 100 am schnellsten wachsenden Tech-Unternehmen der Region für 2023"
+      },
+      "global": {
+        "title": "Globale Expansion",
+        "desc": "150 Länder in nur 5 Jahren erreicht mit Plänen für 200 Länder"
+      }
+    },
+    "services": {
+      "title": "Unsere Dienstleistungen & Technische Lösungen",
+      "subtitle": "Wir bieten eine umfassende Palette fortschrittlicher technischer Dienstleistungen und Lösungen für Einzelpersonen und Unternehmen",
+      "platform": {
+        "title": "Foto-Sharing-Plattform",
+        "desc": "Integrierte Plattform zum Hochladen, Teilen und Verwalten von Fotos mit erweiterten Bearbeitungstools und Urheberrechtsschutz"
+      },
+      "api": {
+        "title": "Anwendungsprogrammierschnittstellen",
+        "desc": "Fortschrittliche APIs, die es Entwicklern ermöglichen, unsere Dienste einfach in ihre Anwendungen und Websites zu integrieren"
+      },
+      "analytics": {
+        "title": "Intelligente Analytik",
+        "desc": "Fortschrittliches Analysesystem mit detaillierten Statistiken zu Leistung, Engagement und Zielgruppeneinblicken"
+      },
+      "security": {
+        "title": "Sicherheitslösungen",
+        "desc": "Informationssicherheits- und Cybersicherheitsdienste zur Gewährleistung der Daten- und Inhaltssicherheit"
+      }
+    },
+    "team": {
+      "title": "Unser Team",
+      "subtitle": "Eine Gruppe von Spezialisten und Kreativen, die leidenschaftlich daran arbeiten, unsere Plattform kontinuierlich zu entwickeln und zu verbessern",
+      "founder": {
+        "role": "Gründer & CEO",
+        "bio": "Ein Entwickler und Designer mit Leidenschaft für Technologie und Kunst, der das Team zur Verwirklichung der globalen Vision der Plattform führt"
+      },
+      "designer": {
+        "role": "Design & UX Direktorin",
+        "bio": "Expertin für Benutzeroberflächen- und Benutzererfahrungsdesign, die sicherstellt, dass jede Interaktion einfach und schön ist"
+      },
+      "developer": {
+        "role": "Lead-Entwickler",
+        "bio": "Spezialist für technische Entwicklung und Sicherheit, der sicherstellt, dass die Plattform auf höchstem Niveau von Leistung und Zuverlässigkeit arbeitet"
+      }
+    },
+    "contact": {
+      "title": "Kontaktieren Sie uns",
+      "address": "Riad, Saudi-Arabien",
+      "followUs": "Folgen Sie uns in den sozialen Medien"
+    }
+  }
+}

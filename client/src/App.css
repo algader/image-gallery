@@ -1,0 +1,55 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html[dir="rtl"] {
+  font-family: 'Arial', 'Tahoma', sans-serif;
+}
+
+html[dir="ltr"] {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="ltr"] {
+  text-align: left;
+}
+
+
+[lang="ar"] {
+  font-family: 'Arial', 'Tahoma', 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+[lang="en"] {
+  font-family: 'Arial', 'Helvetica', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+}
+
+[lang="de"] {
+  font-family: 'Arial', 'Helvetica', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  transition: direction 0.3s ease;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 0;
+}

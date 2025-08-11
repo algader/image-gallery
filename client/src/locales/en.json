@@ -1,0 +1,216 @@
+{
+  "nav": {
+    "title": "The Exhibition",
+    "subtitle": "Global Creative Photo Sharing Platform",
+    "home": "Home",
+    "myImages": "My Images",
+    "upload": "Upload",
+    "about": "About Us",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "welcome": "Welcome"
+  },
+  "home": {
+    "title": "Photo Gallery",
+    "subtitle": "Discover and share the most beautiful photos",
+    "searchPlaceholder": "Search photos...",
+    "searchResults": "Search results for",
+    "foundImages": "Found",
+    "noImagesFound": "No photos match your search",
+    "noImages": "No photos available",
+    "searchHint": "Try using different words or check spelling",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Create New Account",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "loginButton": "Login",
+    "registerButton": "Create Account",
+    "alreadyHaveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "loginHere": "Login here",
+    "registerHere": "Register here"
+  },
+  "myImages": {
+    "title": "My Images",
+    "subtitle": "Manage and view all your uploaded photos",
+    "uploadNew": "Upload New Image",
+    "noImages": "No images yet",
+    "noImagesSubtitle": "You haven't uploaded any photos yet",
+    "uploadFirst": "Upload first image",
+    "images": "image",
+    "likes": "like",
+    "views": "view"
+  },
+  "upload": {
+    "title": "Upload New Image",
+    "selectImage": "Select Image",
+    "title_field": "Image Title",
+    "description": "Image Description",
+    "uploadButton": "Upload Image",
+    "uploading": "Uploading...",
+    "dragDrop": "Drag and drop image here or click to select",
+    "supportedFormats": "Supported formats: JPEG, PNG"
+  },
+  "imageCard": {
+    "edit": "Edit",
+    "delete": "Delete",
+    "like": "Like",
+    "unlike": "Unlike",
+    "views": "views",
+    "likes": "likes",
+    "uploadedBy": "Uploaded by",
+    "uploadDate": "Uploaded",
+    "save": "Save",
+    "cancel": "Cancel",
+    "saving": "Saving...",
+    "confirmDelete": "Confirm Delete",
+    "deleteConfirmText": "Are you sure you want to delete this image?",
+    "deleteWarning": "This action cannot be undone",
+    "confirmDeleteButton": "Yes, Delete",
+    "cancelDelete": "Cancel",
+    "deleting": "Deleting..."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "back": "Back",
+    "continue": "Continue",
+    "language": "Language"
+  },
+  "about": {
+    "hero": {
+      "title": "The Exhibition - Global Creative Photo Sharing Platform",
+      "subtitle": "A leading technology company in photo sharing and artistic creativity since 2020. We specialize in developing innovative solutions for the global community of photographers and artists, combining cutting-edge technology with modern design to provide an exceptional and distinctive experience."
+    },
+    "stats": {
+      "users": { "number": "10K+", "label": "active users" },
+      "photos": { "number": "500K+", "label": "shared photos" },
+      "countries": { "number": "150+", "label": "countries" },
+      "languages": { "number": "3", "label": "supported languages" }
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "Our journey began in 2020 with a simple dream: to create a platform that brings together photographers and artists from around the world to share their creativity and passion for photography. We believed that every photo tells a story, and every artist deserves a platform worthy of their talent.",
+      "paragraph2": "Over the past years, our platform has grown to become one of the largest photography communities in the region, serving over 10,000 active users from 150 countries worldwide. More than half a million photos have been shared through our platform.",
+      "paragraph3": "We believe in the power of art to change the world, and we strive to provide advanced tools and technologies that help creators express themselves in the best possible way. Our vision is to become the world's leading platform for visual creativity sharing."
+    },
+    "timeline": {
+      "2020": "Platform foundation and initial launch",
+      "2022": "Reached 5000 users and 100k photos",
+      "2023": "Added advanced features and international expansion",
+      "2025": "Multi-language support and AI integration"
+    },
+    "features": {
+      "title": "Our Unique Features",
+      "subtitle": "We offer a comprehensive set of tools and features that make photo sharing easy, enjoyable, and distinctive",
+      "sharing": {
+        "title": "Easy & Secure Sharing",
+        "desc": "Upload your photos with one click while ensuring original quality preservation and copyright protection"
+      },
+      "security": {
+        "title": "Advanced Security",
+        "desc": "We protect your data and photos with the latest encryption and cybersecurity technologies"
+      },
+      "multilingual": {
+        "title": "Multi-language Support",
+        "desc": "Interface available in three languages: Arabic, English, and German with text direction support"
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "desc": "Perfect experience across all devices from smartphones to desktop computers"
+      },
+      "fast": {
+        "title": "Fast Performance",
+        "desc": "Lightning-fast loading and smooth navigation thanks to modern technologies used"
+      },
+      "community": {
+        "title": "Creative Community",
+        "desc": "Join a community of creative photographers and artists and interact with their works"
+      }
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "We strive to empower creators from around the world by providing an advanced and user-friendly platform to share their artistic works and connect with a global community interested in art and photography."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To become the world's leading platform in visual creativity sharing, and to be the bridge connecting artists and creators from different cultures and backgrounds to build a more beautiful and creative world."
+    },
+    "values": {
+      "title": "Our Corporate Values",
+      "content": "Creativity and innovation at the core of everything we do, quality and excellence in product development, transparency and integrity in dealing with our customers and partners, sustainability and social responsibility, and respect for the cultural and intellectual diversity of our users from around the world."
+    },
+    "achievements": {
+      "title": "Our Achievements & Awards",
+      "subtitle": "We are proud of the achievements we have made and the recognition we have received from the technical and creative community",
+      "tech": {
+        "title": "Best Tech Platform 2024",
+        "desc": "Best Technology Platform for Creativity Award from Middle East Technology Conference"
+      },
+      "users": {
+        "title": "User Rating",
+        "desc": "4.8/5 rating from over 10,000 users worldwide"
+      },
+      "growth": {
+        "title": "Fastest Growing Company",
+        "desc": "Among the list of the 100 fastest growing tech companies in the region for 2023"
+      },
+      "global": {
+        "title": "Global Expansion",
+        "desc": "Reached 150 countries in just 5 years with plans to reach 200 countries"
+      }
+    },
+    "services": {
+      "title": "Our Services & Technical Solutions",
+      "subtitle": "We provide a comprehensive range of advanced technical services and solutions for individuals and companies",
+      "platform": {
+        "title": "Photo Sharing Platform",
+        "desc": "Integrated platform for uploading, sharing and managing photos with advanced editing tools and copyright protection"
+      },
+      "api": {
+        "title": "Application Programming Interfaces",
+        "desc": "Advanced APIs that enable developers to easily integrate our services into their applications and websites"
+      },
+      "analytics": {
+        "title": "Smart Analytics",
+        "desc": "Advanced analytics system providing detailed statistics on performance, engagement and audience insights"
+      },
+      "security": {
+        "title": "Security Solutions",
+        "desc": "Information security and cybersecurity services to ensure data and content safety"
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "A group of specialists and creatives who work passionately to continuously develop and improve our platform",
+      "founder": {
+        "role": "Founder & CEO",
+        "bio": "A developer and designer passionate about technology and art, leading the team towards achieving the platform's global vision"
+      },
+      "designer": {
+        "role": "Design & UX Director",
+        "bio": "Expert in user interface and user experience design, ensuring every interaction is easy and beautiful"
+      },
+      "developer": {
+        "role": "Lead Developer",
+        "bio": "Specialist in technical development and security, ensuring the platform operates at the highest levels of performance and reliability"
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "Riyadh, Saudi Arabia",
+      "followUs": "Follow us on social media"
+    }
+  }
+}
