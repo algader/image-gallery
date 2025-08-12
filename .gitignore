@@ -107,3 +107,4 @@ GITHUB_TOKEN_GUIDE.md
 UPLOAD_INSTRUCTIONS.md
 upload-to-github.sh
 fix-github-upload.sh
+.env
