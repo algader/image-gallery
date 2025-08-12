@@ -19,8 +19,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Database connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/photo-sharing', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  ssl: true,
+  tlsInsecure: false,
+  authMechanism: 'SCRAM-SHA-1'
 });
 
 mongoose.connection.on('connected', () => {
