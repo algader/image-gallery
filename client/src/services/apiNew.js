@@ -1,6 +1,4 @@
-// API Service - Local Storage Only Version (for Netlify)
-
-// مفاتيح التخزين المحلي
+// API Service - Local Storage Version
 const STORAGE_KEYS = {
   USERS: 'photoapp_users',
   IMAGES: 'photoapp_images',
@@ -17,14 +15,11 @@ const initializeStorage = () => {
   }
 };
 
-// تشغيل التهيئة
 initializeStorage();
 
-// مساعدات
 const generateId = () => Date.now().toString();
 const generateToken = (user) => btoa(JSON.stringify({ userId: user.id, timestamp: Date.now() }));
 
-// تحويل ملف إلى Base64
 const fileToBase64 = (file) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -34,10 +29,7 @@ const fileToBase64 = (file) => {
   });
 };
 
-// API Functions
 const api = {
-  // ===== المصادقة =====
-  
   register: async (userData) => {
     const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS) || '[]');
     const existingUser = users.find(user => user.email === userData.email);
@@ -85,8 +77,6 @@ const api = {
     return userData ? JSON.parse(userData) : null;
   },
 
-  // ===== الصور =====
-
   uploadImage: async (formData) => {
     const currentUser = api.getCurrentUser();
     if (!currentUser) {
@@ -95,12 +85,10 @@ const api = {
 
     const images = JSON.parse(localStorage.getItem(STORAGE_KEYS.IMAGES) || '[]');
     
-    // استخراج البيانات من FormData
     const title = formData.get('title');
     const description = formData.get('description');
     const imageFile = formData.get('image');
     
-    // تحويل الصورة إلى Base64
     const imageBase64 = await fileToBase64(imageFile);
     
     const newImage = {
@@ -123,7 +111,7 @@ const api = {
 
   getImages: async () => {
     const images = JSON.parse(localStorage.getItem(STORAGE_KEYS.IMAGES) || '[]');
-    return { data: images.reverse() }; // الأحدث أولاً
+    return { data: images.reverse() };
   },
 
   getUserImages: async () => {
@@ -176,10 +164,8 @@ const api = {
     const userIndex = image.likes.indexOf(currentUser.user.id);
     
     if (userIndex > -1) {
-      // إلغاء الإعجاب
       image.likes.splice(userIndex, 1);
     } else {
-      // إضافة إعجاب
       image.likes.push(currentUser.user.id);
     }
 

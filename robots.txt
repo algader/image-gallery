@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://theexhibition.com/sitemap.xml
+
+# Specific rules
+Allow: /about
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /my-images
+Disallow: /upload
+
+# Crawl delay (optional)
+Crawl-delay: 1

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { imageService } from '../services';
+import api from '../services/api';
 import './Upload.css';
 
 const Upload = () => {
@@ -71,7 +71,7 @@ const Upload = () => {
       uploadData.append('description', formData.description);
       uploadData.append('image', formData.image);
 
-      await imageService.uploadImage(uploadData);
+      await api.uploadImage(uploadData);
       
     
       setFormData({

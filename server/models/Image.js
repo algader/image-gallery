@@ -51,7 +51,7 @@ const imageSchema = new mongoose.Schema({
   timestamps: true
 });
 
-
+// Index for better search performance
 imageSchema.index({ title: 'text', description: 'text' });
 imageSchema.index({ uploadedBy: 1 });
 imageSchema.index({ createdAt: -1 });

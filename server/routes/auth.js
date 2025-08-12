@@ -9,14 +9,14 @@ router.post('/register', async (req, res) => {
   try {
     const { username, email, password, firstName, lastName } = req.body;
 
-
+    // التحقق من البيانات المطلوبة
     if (!username || !email || !password || !firstName || !lastName) {
       return res.status(400).json({
         message: 'جميع البيانات مطلوبة'
       });
     }
 
-
+    // التحقق من صحة البريد الإلكتروني
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({
@@ -24,14 +24,14 @@ router.post('/register', async (req, res) => {
       });
     }
 
-
+    // التحقق من طول كلمة المرور
     if (password.length < 6) {
       return res.status(400).json({
         message: 'كلمة المرور يجب أن تكون 6 أحرف على الأقل'
       });
     }
 
-
+    // البحث عن مستخدم موجود
     const existingUser = await User.findOne({
       $or: [{ email }, { username }]
     });
@@ -88,7 +88,7 @@ router.post('/register', async (req, res) => {
   } catch (error) {
     console.error('Registration error:', error);
     
-  
+    // التعامل مع أخطاء MongoDB المختلفة
     if (error.code === 11000) {
       const field = Object.keys(error.keyPattern)[0];
       let message = '';
@@ -111,14 +111,14 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-  
+    // التحقق من البيانات المطلوبة
     if (!email || !password) {
       return res.status(400).json({
         message: 'البريد الإلكتروني وكلمة المرور مطلوبان'
       });
     }
 
-
+    // البحث عن المستخدم
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({
@@ -126,7 +126,7 @@ router.post('/login', async (req, res) => {
       });
     }
 
-  
+    // التحقق من كلمة المرور
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
       return res.status(400).json({
@@ -182,7 +182,7 @@ router.get('/me', async (req, res) => {
   }
 });
 
-
+// Test endpoint للتحقق من أن الخادم يعمل
 router.get('/test', (req, res) => {
   res.json({
     message: 'الخادم يعمل بشكل صحيح!',

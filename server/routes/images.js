@@ -7,7 +7,7 @@ const User = require('../models/User');
 
 const router = express.Router();
 
-
+// Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/');
@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-
+  // Accept only JPEG and PNG images
   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
     cb(null, true);
   } else {
@@ -30,12 +30,12 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 5 * 1024 * 1024 
+    fileSize: 5 * 1024 * 1024 // 5MB limit
   },
   fileFilter: fileFilter
 });
 
-
+// Authentication middleware
 const authenticateToken = async (req, res, next) => {
   try {
     const token = req.header('Authorization')?.replace('Bearer ', '');
@@ -84,7 +84,7 @@ router.post('/upload', authenticateToken, upload.single('image'), async (req, re
 
     await image.save();
 
- 
+    // Populate user info for response
     await image.populate('uploadedBy', 'username firstName lastName');
 
     res.status(201).json({
@@ -97,7 +97,7 @@ router.post('/upload', authenticateToken, upload.single('image'), async (req, re
   }
 });
 
-// Get all images 
+// Get all images (public route with pagination)
 router.get('/', async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -124,7 +124,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get user images
+// Get user's images
 router.get('/my-images', authenticateToken, async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -185,10 +185,10 @@ router.post('/:id/like', authenticateToken, async (req, res) => {
     const userIndex = image.likes.indexOf(req.user._id);
 
     if (userIndex > -1) {
-   
+      // Unlike: remove user from likes array
       image.likes.splice(userIndex, 1);
     } else {
-
+      // Like: add user to likes array
       image.likes.push(req.user._id);
     }
 
@@ -206,12 +206,12 @@ router.post('/:id/like', authenticateToken, async (req, res) => {
   }
 });
 
-// Update image 
+// Update image (only owner can update)
 router.put('/:id', authenticateToken, async (req, res) => {
   try {
     const { title, description } = req.body;
 
-
+    // Validation
     if (!title || !description) {
       return res.status(400).json({ message: 'Title and description are required' });
     }
@@ -230,7 +230,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
       return res.status(404).json({ message: 'Image not found' });
     }
 
-
+    // Check if user is the owner
     if (image.uploadedBy.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: 'Access denied. You can only update your own images.' });
     }
@@ -242,7 +242,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
 
     await image.save();
 
-  
+    // Populate user info for response
     await image.populate('uploadedBy', 'username firstName lastName');
 
     res.json({
@@ -255,7 +255,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
   }
 });
 
-// Delete image
+// Delete image (only owner can delete)
 router.delete('/:id', authenticateToken, async (req, res) => {
   try {
     const image = await Image.findById(req.params.id);
@@ -286,12 +286,12 @@ router.get('/search/:query', async (req, res) => {
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
 
-
+    // Create search conditions that work with both text search and regex
     const searchConditions = {
       $or: [
-     
+        // Text search (if text index exists)
         { $text: { $search: query } },
-   
+        // Regex search for more flexible matching
         { title: { $regex: query, $options: 'i' } },
         { description: { $regex: query, $options: 'i' } }
       ]
@@ -301,7 +301,7 @@ router.get('/search/:query', async (req, res) => {
     let total;
 
     try {
-  
+      // Try text search first
       images = await Image.find({ $text: { $search: query } })
         .populate('uploadedBy', 'username firstName lastName')
         .sort({ score: { $meta: 'textScore' }, createdAt: -1 })
@@ -310,7 +310,7 @@ router.get('/search/:query', async (req, res) => {
 
       total = await Image.countDocuments({ $text: { $search: query } });
     } catch (textSearchError) {
-   
+      // If text search fails, fall back to regex search
       console.log('Text search not available, using regex search');
       images = await Image.find({
         $or: [

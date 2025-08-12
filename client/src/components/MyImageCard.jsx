@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { imageService } from '../services';
+import api from '../services/api';
 import './MyImageCard.css';
 
 const MyImageCard = ({ image, onUpdate, onDelete }) => {
@@ -77,12 +77,12 @@ const MyImageCard = ({ image, onUpdate, onDelete }) => {
 
     setIsLoading(true);
     try {
-      const updatedImage = await imageService.updateImage(image._id, {
+      const updatedImage = await api.updateImage(image.id, {
         title: editData.title.trim(),
         description: editData.description.trim()
       });
       
-      onUpdate(image._id, updatedImage);
+      onUpdate(image.id, updatedImage.data);
       setIsEditing(false);
     } catch (error) {
       console.error('Error updating image:', error);
@@ -95,8 +95,8 @@ const MyImageCard = ({ image, onUpdate, onDelete }) => {
   const handleDelete = async () => {
     setIsDeleting(true);
     try {
-      await imageService.deleteImage(image._id);
-      onDelete(image._id);
+      await api.deleteImage(image.id);
+      onDelete(image.id);
       setShowDeleteConfirm(false);
     } catch (error) {
       console.error('Error deleting image:', error);
@@ -120,7 +120,7 @@ const MyImageCard = ({ image, onUpdate, onDelete }) => {
     <div className="my-image-card">
       <div className="image-container">
         <img 
-          src={`http://localhost:5001/${image.path}`} 
+          src={image.imageUrl} 
           alt={image.title}
           className="image"
         />
@@ -151,9 +151,9 @@ const MyImageCard = ({ image, onUpdate, onDelete }) => {
         {isEditing ? (
           <div className="edit-form">
             <div className="form-group">
-              <label htmlFor={`title-${image._id}`}>العنوان</label>
+              <label htmlFor={`title-${image.id}`}>العنوان</label>
               <input
-                id={`title-${image._id}`}
+                id={`title-${image.id}`}
                 type="text"
                 name="title"
                 value={editData.title}
@@ -168,9 +168,9 @@ const MyImageCard = ({ image, onUpdate, onDelete }) => {
             </div>
 
             <div className="form-group">
-              <label htmlFor={`description-${image._id}`}>الوصف</label>
+              <label htmlFor={`description-${image.id}`}>الوصف</label>
               <textarea
-                id={`description-${image._id}`}
+                id={`description-${image.id}`}
                 name="description"
                 value={editData.description}
                 onChange={handleInputChange}

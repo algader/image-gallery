@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { imageService } from '../services';
+import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import MyImageCard from '../components/MyImageCard';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -22,9 +22,9 @@ const MyImages = () => {
   const fetchMyImages = async () => {
     try {
       setLoading(true);
-      const response = await imageService.getMyImages(currentPage);
-      setImages(response.images);
-      setTotalPages(response.totalPages);
+      const response = await api.getUserImages();
+      setImages(response.data);
+      setTotalPages(1);
       setError('');
     } catch (error) {
       setError(error.message || 'فشل في تحميل صورك');

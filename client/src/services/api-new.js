@@ -1,4 +1,4 @@
-// API Service - Local Storage Only Version (for Netlify)
+// API Service - Local Storage Version (بدون خادم)
 
 // مفاتيح التخزين المحلي
 const STORAGE_KEYS = {
