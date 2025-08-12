@@ -1,0 +1,21 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "Photo sharing platform with React frontend and Node.js backend",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "dev": "cd server && npm run dev",
+    "install-server": "cd server && npm install",
+    "install-client": "cd client && npm install",
+    "build": "cd server && npm install",
+    "postinstall": "npm run install-server"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": ["photo", "gallery", "react", "nodejs", "mongodb"],
+  "author": "algader",
+  "license": "MIT"
+}
