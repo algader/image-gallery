@@ -16,19 +16,19 @@ const Login = () => {
   const { login, isAuthenticated, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
 
-
+  // إعادة توجيه المستخدم المسجل دخوله إلى الصفحة الرئيسية
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/', { replace: true });
     }
   }, [isAuthenticated, navigate]);
 
- 
+  // إذا كان التطبيق يتحقق من حالة المصادقة، أظهر شاشة التحميل
   if (authLoading) {
     return <LoadingSpinner />;
   }
 
-
+  // إذا كان المستخدم مسجل دخوله، لا تظهر شيئاً (سيتم إعادة التوجيه)
   if (isAuthenticated) {
     return null;
   }
@@ -40,7 +40,7 @@ const Login = () => {
       [name]: value,
     });
     
-
+    // إزالة رسالة الخطأ عند بدء الكتابة
     if (fieldErrors[name]) {
       setFieldErrors({
         ...fieldErrors,
@@ -55,14 +55,14 @@ const Login = () => {
   const validateForm = () => {
     const errors = {};
     
-  
+    // التحقق من البريد الإلكتروني
     if (!formData.email) {
       errors.email = 'البريد الإلكتروني مطلوب';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       errors.email = 'البريد الإلكتروني غير صالح';
     }
     
-  
+    // التحقق من كلمة المرور
     if (!formData.password) {
       errors.password = 'كلمة المرور مطلوبة';
     } else if (formData.password.length < 6) {
@@ -74,7 +74,7 @@ const Login = () => {
   };
 
   const getErrorMessage = (error) => {
-  
+    // ترجمة رسائل الخطأ الشائعة
     if (typeof error === 'string') {
       if (error.includes('Invalid credentials') || error.includes('Incorrect password')) {
         return 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
@@ -100,7 +100,7 @@ const Login = () => {
     e.preventDefault();
     setError('');
     
-
+    // التحقق من صحة النموذج
     if (!validateForm()) {
       return;
     }

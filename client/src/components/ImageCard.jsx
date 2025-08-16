@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../services/api';
+import { imageService } from '../services';
 import { useAuth } from '../context/AuthContext';
 import './ImageCard.css';
 
@@ -13,8 +13,8 @@ const ImageCard = ({ image, onLike, onDelete }) => {
     
     try {
       setIsLiking(true);
-      const response = await api.toggleLike(image.id);
-      onLike(image.id, response.data.likes.length, response.data.likes.includes(user.id));
+      const response = await imageService.likeImage(image._id);
+      onLike(image._id, response.likesCount, response.isLiked);
     } catch (error) {
       console.error('Error liking image:', error);
     } finally {
@@ -23,14 +23,14 @@ const ImageCard = ({ image, onLike, onDelete }) => {
   };
 
   const handleDelete = async () => {
-    if (!user || image.userId !== user.id) return;
+    if (!user || image.uploadedBy._id !== user.id) return;
     
     if (!window.confirm('هل أنت متأكد من حذف هذه الصورة؟')) return;
     
     try {
       setIsDeleting(true);
-      await api.deleteImage(image.id);
-      onDelete(image.id);
+      await imageService.deleteImage(image._id);
+      onDelete(image._id);
     } catch (error) {
       console.error('Error deleting image:', error);
       alert('فشل في حذف الصورة');
@@ -52,7 +52,7 @@ const ImageCard = ({ image, onLike, onDelete }) => {
     <div className="image-card">
       <div className="image-container">
         <img 
-          src={image.imageUrl}
+          src={`http://localhost:5001/${image.path}`}
           alt={image.title}
           className="image"
         />
@@ -68,7 +68,7 @@ const ImageCard = ({ image, onLike, onDelete }) => {
               <span className="like-count">{image.likes?.length || 0}</span>
             </button>
             
-            {user.id === image.userId && (
+            {user.id === image.uploadedBy._id && (
               <button
                 onClick={handleDelete}
                 disabled={isDeleting}
@@ -88,7 +88,7 @@ const ImageCard = ({ image, onLike, onDelete }) => {
         <div className="image-meta">
           <div className="uploader-info">
             <span className="uploader-name">
-              {image.userName}
+              {image.uploadedBy.firstName} {image.uploadedBy.lastName}
             </span>
             <span className="upload-date">{formatDate(image.createdAt)}</span>
           </div>

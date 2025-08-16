@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../services/api';
+import { imageService } from '../services';
 import './Upload.css';
 
 const Upload = () => {
@@ -27,13 +27,13 @@ const Upload = () => {
     const file = e.target.files[0];
     
     if (file) {
-   
+      // Validate file type
       if (!file.type.match(/^image\/(jpeg|png)$/)) {
         setError('يرجى اختيار صورة بصيغة PNG أو JPEG فقط');
         return;
       }
 
-
+      // Validate file size (5MB max)
       if (file.size > 5 * 1024 * 1024) {
         setError('حجم الصورة يجب أن يكون أقل من 5 ميجابايت');
         return;
@@ -44,7 +44,7 @@ const Upload = () => {
         image: file
       }));
 
-    
+      // Create preview
       const reader = new FileReader();
       reader.onload = (e) => {
         setPreview(e.target.result);
@@ -71,9 +71,9 @@ const Upload = () => {
       uploadData.append('description', formData.description);
       uploadData.append('image', formData.image);
 
-      await api.uploadImage(uploadData);
+      await imageService.uploadImage(uploadData);
       
-    
+      // Reset form
       setFormData({
         title: '',
         description: '',
@@ -81,7 +81,7 @@ const Upload = () => {
       });
       setPreview(null);
       
-  
+      // Redirect to home
       navigate('/');
     } catch (error) {
       setError(error.message || 'فشل في رفع الصورة');

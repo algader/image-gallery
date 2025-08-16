@@ -40,7 +40,7 @@ const About = () => {
 
   const team = [
     {
-      name: 'د. أحمد محمد ',
+      name: 'د. أحمد محمد السكري',
       role: 'about.team.founder.role',
       image: '👨‍💻',
       bio: 'about.team.founder.bio'

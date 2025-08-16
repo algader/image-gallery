@@ -1,4 +1,4 @@
-
+/* دعم اتجاه النص للغات المختلفة */
 * {
   box-sizing: border-box;
 }
@@ -17,6 +17,7 @@ body {
   transition: all 0.3s ease;
 }
 
+/* تحسينات للغة العربية */
 [dir="rtl"] {
   text-align: right;
 }
@@ -25,7 +26,7 @@ body {
   text-align: left;
 }
 
-
+/* تحسين عرض الخطوط للغات المختلفة */
 [lang="ar"] {
   font-family: 'Arial', 'Tahoma', 'Segoe UI', sans-serif;
   line-height: 1.6;

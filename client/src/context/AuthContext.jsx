@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
-import api from '../services/api';
+import { authService } from '../services';
 
 const AuthContext = createContext();
 
@@ -47,23 +47,18 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const initAuth = async () => {
-      try {
-        const userData = api.getCurrentUser();
-        if (userData) {
-          dispatch({ 
-            type: 'LOGIN_SUCCESS', 
-            payload: {
-              user: userData.user,
-              token: userData.token
-            }
-          });
-        } else {
-          dispatch({ type: 'SET_LOADING', payload: false });
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const user = await authService.getCurrentUser();
+          dispatch({ type: 'SET_USER', payload: user });
+        } catch (error) {
+          console.error('Auth initialization failed:', error);
+          authService.logout();
+          dispatch({ type: 'LOGOUT' });
         }
-      } catch (error) {
-        console.error('Auth initialization failed:', error);
-        api.logout();
-        dispatch({ type: 'LOGOUT' });
+      } else {
+        dispatch({ type: 'SET_LOADING', payload: false });
       }
     };
 
@@ -72,15 +67,15 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (credentials) => {
     try {
-      const response = await api.login(credentials);
+      const response = await authService.login(credentials);
       dispatch({
         type: 'LOGIN_SUCCESS',
         payload: {
-          user: response.data.user,
-          token: response.data.token,
+          user: response.user,
+          token: response.token,
         },
       });
-      return response.data;
+      return response;
     } catch (error) {
       throw error;
     }
@@ -88,22 +83,22 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await api.register(userData);
+      const response = await authService.register(userData);
       dispatch({
         type: 'LOGIN_SUCCESS',
         payload: {
-          user: response.data.user,
-          token: response.data.token,
+          user: response.user,
+          token: response.token,
         },
       });
-      return response.data;
+      return response;
     } catch (error) {
       throw error;
     }
   };
 
   const logout = () => {
-    api.logout();
+    authService.logout();
     dispatch({ type: 'LOGOUT' });
   };
 

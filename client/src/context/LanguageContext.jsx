@@ -22,18 +22,18 @@ export const useLanguage = () => {
 };
 
 export const LanguageProvider = ({ children }) => {
-
+  // جلب اللغة المحفوظة من localStorage أو استخدام العربية كافتراضية
   const [currentLanguage, setCurrentLanguage] = useState(() => {
     return localStorage.getItem('language') || 'ar';
   });
 
-
+  // تحديث اتجاه النص واللغة في document
   useEffect(() => {
     const direction = currentLanguage === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.dir = direction;
     document.documentElement.lang = currentLanguage;
     
-
+    // حفظ اللغة في localStorage
     localStorage.setItem('language', currentLanguage);
   }, [currentLanguage]);
 
@@ -43,7 +43,7 @@ export const LanguageProvider = ({ children }) => {
     }
   };
 
-
+  // دالة للحصول على الترجمة
   const t = (key) => {
     const keys = key.split('.');
     let value = translations[currentLanguage];
@@ -52,11 +52,11 @@ export const LanguageProvider = ({ children }) => {
       value = value?.[k];
     }
     
- 
+    // إذا لم توجد الترجمة، ارجع المفتاح نفسه
     return value || key;
   };
 
-
+  // دالة للحصول على معلومات اللغة الحالية
   const getLanguageInfo = () => {
     const languageInfo = {
       ar: { name: 'العربية', flag: '🇸🇦', dir: 'rtl' },
@@ -66,7 +66,7 @@ export const LanguageProvider = ({ children }) => {
     return languageInfo[currentLanguage];
   };
 
-
+  // قائمة اللغات المتاحة
   const availableLanguages = [
     { code: 'ar', name: 'العربية', flag: '🇸🇦' },
     { code: 'en', name: 'English', flag: '🇺🇸' },

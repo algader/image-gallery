@@ -20,19 +20,19 @@ const Register = () => {
   const { register, isAuthenticated, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
 
- 
+  // إعادة توجيه المستخدم المسجل دخوله إلى الصفحة الرئيسية
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/', { replace: true });
     }
   }, [isAuthenticated, navigate]);
 
-
+  // إذا كان التطبيق يتحقق من حالة المصادقة، أظهر شاشة التحميل
   if (authLoading) {
     return <LoadingSpinner />;
   }
 
- 
+  // إذا كان المستخدم مسجل دخوله، لا تظهر شيئاً (سيتم إعادة التوجيه)
   if (isAuthenticated) {
     return null;
   }
@@ -44,7 +44,7 @@ const Register = () => {
       [name]: value,
     });
     
-
+    // إزالة رسالة الخطأ عند بدء الكتابة
     if (fieldErrors[name]) {
       setFieldErrors({
         ...fieldErrors,
@@ -59,21 +59,21 @@ const Register = () => {
   const validateForm = () => {
     const errors = {};
     
-
+    // التحقق من الاسم الأول
     if (!formData.firstName.trim()) {
       errors.firstName = 'الاسم الأول مطلوب';
     } else if (formData.firstName.trim().length < 2) {
       errors.firstName = 'الاسم الأول يجب أن يكون حرفين على الأقل';
     }
     
-  
+    // التحقق من الاسم الأخير
     if (!formData.lastName.trim()) {
       errors.lastName = 'الاسم الأخير مطلوب';
     } else if (formData.lastName.trim().length < 2) {
       errors.lastName = 'الاسم الأخير يجب أن يكون حرفين على الأقل';
     }
     
-   
+    // التحقق من اسم المستخدم
     if (!formData.username.trim()) {
       errors.username = 'اسم المستخدم مطلوب';
     } else if (formData.username.trim().length < 3) {
@@ -82,21 +82,21 @@ const Register = () => {
       errors.username = 'اسم المستخدم يجب أن يحتوي على أحرف وأرقام فقط';
     }
     
-   
+    // التحقق من البريد الإلكتروني
     if (!formData.email) {
       errors.email = 'البريد الإلكتروني مطلوب';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       errors.email = 'البريد الإلكتروني غير صالح';
     }
     
-  
+    // التحقق من كلمة المرور
     if (!formData.password) {
       errors.password = 'كلمة المرور مطلوبة';
     } else if (formData.password.length < 6) {
       errors.password = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
     }
     
-
+    // التحقق من تأكيد كلمة المرور
     if (!formData.confirmPassword) {
       errors.confirmPassword = 'تأكيد كلمة المرور مطلوب';
     } else if (formData.password !== formData.confirmPassword) {
@@ -109,7 +109,8 @@ const Register = () => {
 
   const getErrorMessage = (error) => {
     console.log('Registration error details:', error);
-
+    
+    // ترجمة رسائل الخطأ الشائعة
     if (typeof error === 'string') {
       if (error.includes('already exists') || error.includes('duplicate') || error.includes('مسجل مسبقاً')) {
         return 'البريد الإلكتروني أو اسم المستخدم مسجل مسبقاً';
@@ -126,7 +127,7 @@ const Register = () => {
       return error;
     }
     
-
+    // إذا كان الخطأ كائن
     if (error && error.message) {
       return error.message;
     }
@@ -138,7 +139,7 @@ const Register = () => {
     e.preventDefault();
     setError('');
 
-
+    // التحقق من صحة النموذج
     if (!validateForm()) {
       return;
     }
@@ -148,7 +149,7 @@ const Register = () => {
     try {
       const { confirmPassword, ...dataToSend } = formData;
       await register(dataToSend);
-   
+      // تسجيل الدخول تلقائياً بعد إنشاء الحساب - يتم في AuthContext
       navigate('/', { replace: true });
     } catch (error) {
       console.error('Registration error:', error);

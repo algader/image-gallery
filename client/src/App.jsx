@@ -12,7 +12,7 @@ import Upload from './pages/Upload';
 import MyImages from './pages/MyImages';
 import './App.css';
 
-
+// مكون لتحديث عنوان الصفحة
 const PageTitle = () => {
   const { t } = useLanguage();
   

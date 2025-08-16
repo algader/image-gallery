@@ -19,7 +19,7 @@ const ImageThumbnail = ({ image, onLike }) => {
   };
 
   const handleLike = async (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation(); // منع فتح المودال عند الضغط على الإعجاب
     
     if (!isAuthenticated) {
       alert('يجب تسجيل الدخول أولاً للإعجاب بالصور');
@@ -35,7 +35,7 @@ const ImageThumbnail = ({ image, onLike }) => {
     } catch (error) {
       console.error('Error liking image:', error);
       setLikeError('فشل في تسجيل الإعجاب. حاول مرة أخرى.');
-      
+      // إخفاء رسالة الخطأ بعد 3 ثواني
       setTimeout(() => setLikeError(''), 3000);
     } finally {
       setIsLiking(false);

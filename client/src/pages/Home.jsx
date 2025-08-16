@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../services/api';
+import { imageService } from '../services';
 import { useLanguage } from '../context/LanguageContext';
 import ImageThumbnail from '../components/ImageThumbnail';
 import SearchBar from '../components/SearchBar';
@@ -23,10 +23,9 @@ const Home = () => {
   const fetchImages = async () => {
     try {
       setLoading(true);
-      const response = await api.getImages();
-      setImages(response.data);
-      // لا نحتاج للترقيم مع Local Storage
-      setTotalPages(1);
+      const response = await imageService.getAllImages(currentPage);
+      setImages(response.images);
+      setTotalPages(response.totalPages);
       setError('');
     } catch (error) {
       setError(error.message || t('home.loadError'));
@@ -50,11 +49,11 @@ const Home = () => {
       setIsSearching(true);
       setLoading(true);
       setSearchQuery(query);
-      console.log(' إرسال طلب البحث:', query);
-      const response = await api.searchImages(query);
-      console.log(' استلام نتائج البحث:', response);
-      setImages(response.data);
-      setTotalPages(1);
+      console.log('📡 إرسال طلب البحث:', query);
+      const response = await imageService.searchImages(query);
+      console.log('📥 استلام نتائج البحث:', response);
+      setImages(response.images);
+      setTotalPages(response.totalPages);
       setCurrentPage(1);
       setError('');
     } catch (error) {
@@ -72,12 +71,16 @@ const Home = () => {
 
   const handleImageLike = async (imageId) => {
     try {
-      const response = await api.toggleLike(imageId);
+      const response = await imageService.likeImage(imageId);
       
       // تحديث الصورة في القائمة
       setImages(images.map(image => 
-        image.id === imageId 
-          ? response.data
+        image._id === imageId 
+          ? { 
+              ...image, 
+              likes: response.likes,
+              isLiked: response.isLiked
+            }
           : image
       ));
       
