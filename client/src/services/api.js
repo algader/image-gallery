@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5001/api';
+const API_BASE_URL =  'https://image-gallery-1-21we.onrender.com/api';
+//  import.meta.env.VITE_API_URL ||
 
 // Create axios instance
 const api = axios.create({

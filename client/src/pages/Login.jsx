@@ -109,7 +109,7 @@ const Login = () => {
 
     try {
       await login(formData);
-      navigate('/', { replace: true });
+  navigate('/', { replace: true });
     } catch (error) {
       console.error('Login error:', error);
       setError(getErrorMessage(error));

@@ -10,14 +10,21 @@ const Navbar = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
 
+  const [logoutMsg, setLogoutMsg] = useState('');
   const handleLogout = () => {
     logout();
-    navigate('/');
+    setLogoutMsg('تم تسجيل الخروج بنجاح');
+    setTimeout(() => {
+      setLogoutMsg('');
+      navigate('/');
+    }, 3000);
   };
 
   return (
-    <nav className="navbar">
-      <div className="nav-container">
+    <>
+  {logoutMsg && <div className="success-message" style={{textAlign:'center',background:'#d4edda',color:'#155724',padding:'10px',marginBottom:'0'}}>{logoutMsg}</div>}
+      <nav className="navbar">
+        <div className="nav-container">
         <Link to="/" className="nav-logo">
           📸 {t('home.title')}
         </Link>
@@ -68,6 +75,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    </>
   );
 };
 
