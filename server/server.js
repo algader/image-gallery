@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://image-gallery-2-4mql.onrender.com', // رابط الواجهة الأمامية
+  origin: 'https://image-gallery-1-jqj5.onrender.com', // رابط الواجهة الأمامية
   credentials: true
 }));
 app.use(express.json());
