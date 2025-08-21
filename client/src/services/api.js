@@ -2,7 +2,6 @@ import axios from 'axios';
 
 
 const API_BASE_URL =  'https://image-gallery-yfuw.onrender.com/api';
-
 //  import.meta.env.VITE_API_URL ||
 
 // Create axios instance
